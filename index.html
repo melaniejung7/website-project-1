@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PawPath 🐾 | Cheerful Animal Adoption Guide & Process</title>
+  <meta name="description" content="A cheerful, concise, and organized guide to adopting a shelter pet. Explore the 5-step adoption roadmap, the 3-3-3 rule, readiness quiz, supplies checklist, and cheerful background music.">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🐾</text></svg>">
+</head>
+<body>
+
+  <!-- TOP NAVIGATION -->
+  <header class="top-nav">
+    <div class="container nav-container">
+      <a href="#" class="brand-logo" aria-label="PawPath Home">
+        <span class="logo-badge">🐾</span>
+        <span>Paw<span class="logo-accent">Path</span></span>
+      </a>
+
+      <nav aria-label="Main Navigation">
+        <ul class="nav-links">
+          <li><a href="#processSection" class="nav-link">The 5 Steps</a></li>
+          <li><a href="#rule333Section" class="nav-link">3-3-3 Rule</a></li>
+          <li><a href="#checklistSection" class="nav-link">Prep Checklist</a></li>
+          <li><a href="#readinessQuiz" class="nav-link">Readiness Quiz</a></li>
+          <li><a href="#browsePets" class="nav-link">Meet Buddies</a></li>
+          <li><a href="#faqSection" class="nav-link">FAQ</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-cta-group">
+        <a href="#checklistSection" class="btn btn-sm btn-primary">Checklist 📋</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- CHEERFUL MUSIC PLAYER BAR -->
+  <section class="music-bar" aria-label="Background Music Player">
+    <div class="container music-bar-container">
+      <div class="music-info">
+        <span class="music-tag">🎵 Cheerful Tunes</span>
+        <div class="music-visualizer" aria-hidden="true">
+          <div class="eq-bar"></div>
+          <div class="eq-bar"></div>
+          <div class="eq-bar"></div>
+          <div class="eq-bar"></div>
+          <div class="eq-bar"></div>
+        </div>
+        <div class="track-details">
+          <div class="track-name-row">
+            <span id="trackTitle">Sunny Paws Ukulele</span>
+            <span id="trackMood">Upbeat & Joyful</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="music-controls">
+        <button type="button" class="btn-icon-round" id="prevTrackBtn" title="Previous Track" aria-label="Previous Track">⏮</button>
+        <button type="button" class="btn-music-play" id="playMusicBtn" aria-label="Toggle Cheerful Music">
+          <span class="play-icon">▶</span>
+          <span class="pause-icon" style="display: none;">⏸</span>
+          <span class="play-status-text">Play Cheerful Tunes</span>
+        </button>
+        <button type="button" class="btn-icon-round" id="nextTrackBtn" title="Next Track" aria-label="Next Track">⏭</button>
+
+        <div class="volume-wrapper">
+          <button type="button" class="btn-icon-round" id="muteBtn" title="Mute/Unmute" aria-label="Mute or Unmute">🔊</button>
+          <input type="range" id="volumeSlider" min="0" max="1" step="0.05" value="0.6" aria-label="Music Volume">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FLOATING QUICK MUSIC BUTTON (For mobile & bottom-scroll convenience) -->
+  <button type="button" class="floating-music-btn" id="floatingMusicToggle" title="Toggle Cheerful Music" aria-label="Toggle Cheerful Music">
+    🎵
+  </button>
+
+  <!-- HERO SECTION -->
+  <header class="hero">
+    <div class="container hero-grid">
+      <div class="hero-content">
+        <span class="section-pill yellow">✨ Adopt, Don't Shop</span>
+        <h1 class="hero-title">
+          Finding Your <span class="hero-highlight">Forever Friend</span> Starts Here 🐾
+        </h1>
+        <p class="hero-desc">
+          Adopting an animal is one of life's most rewarding journeys. We have broken down the entire adoption process into a concise, joyful, step-by-step roadmap so you and your companion thrive together!
+        </p>
+
+        <div class="hero-btn-row">
+          <a href="#processSection" class="btn btn-primary">Explore The 5 Steps →</a>
+          <a href="#readinessQuiz" class="btn btn-accent">Take Readiness Quiz 🌟</a>
+        </div>
+
+        <div class="hero-highlights-strip">
+          <div class="strip-item">
+            <span>🐶</span> Dogs & Puppies
+          </div>
+          <div class="strip-item">
+            <span>🐱</span> Cats & Kittens
+          </div>
+          <div class="strip-item">
+            <span>🐰</span> Small Animals
+          </div>
+          <div class="strip-item">
+            <span>❤️</span> 100% Love & Patience
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-graphic">
+        <div class="hero-graphic-card">
+          <div class="hero-pet-avatars">
+            <div class="pet-avatar-bubble bubble-dog hero-oliver-bubble" title="Oliver - Chubby & Bowtie Ready!">
+              <img src="oliver.jpg" alt="Oliver - Chubby Golden mix wearing bowtie" class="hero-oliver-img">
+            </div>
+            <div class="pet-avatar-bubble bubble-cat" title="Curious Cat">🐈</div>
+            <div class="pet-avatar-bubble bubble-rabbit" title="Gentle Bunny">🐇</div>
+          </div>
+          <h2 class="hero-card-title">Pure Joy & Unconditional Love</h2>
+          <p class="hero-card-desc">Every shelter pet has an incredible heart ready to share. Let's make their transition smooth, calm, and celebratory.</p>
+          
+          <div class="audio-invite-card" id="heroAudioPrompt" role="button" tabindex="0">
+            <div style="font-size: 2rem;">🎶</div>
+            <div class="audio-invite-text">
+              <strong>Need a soundtrack?</strong><br>
+              Click here to start our cheerful acoustic ukulele synthesizer!
+            </div>
+            <span class="btn btn-sm btn-accent">Play 🎵</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- SECTION 1: THE 5-STEP ADOPTION ROADMAP -->
+  <section class="section" id="processSection">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-pill yellow">📋 Clear & Organized Steps</span>
+        <h2>The 5-Step Adoption Roadmap</h2>
+        <p class="section-subtitle">
+          Navigating shelter requirements doesn't have to be overwhelming. Click through each phase to see exact requirements, insider tips, and checklists.
+        </p>
+      </div>
+
+      <!-- Navigation Tabs -->
+      <div class="process-nav-bar" role="tablist" aria-label="Adoption Steps Navigation">
+        <button type="button" class="process-nav-btn active" role="tab" aria-selected="true">
+          <span class="step-num-pill">1</span> Self-Match
+        </button>
+        <button type="button" class="process-nav-btn" role="tab" aria-selected="false">
+          <span class="step-num-pill">2</span> Meet & Greet
+        </button>
+        <button type="button" class="process-nav-btn" role="tab" aria-selected="false">
+          <span class="step-num-pill">3</span> Application
+        </button>
+        <button type="button" class="process-nav-btn" role="tab" aria-selected="false">
+          <span class="step-num-pill">4</span> Sanctuary Prep
+        </button>
+        <button type="button" class="process-nav-btn" role="tab" aria-selected="false">
+          <span class="step-num-pill">5</span> Welcome Home
+        </button>
+      </div>
+
+      <!-- Dynamic Step Display Container -->
+      <div id="stepDetailDisplay">
+        <!-- Injected via JavaScript for instant responsiveness -->
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 2: THE 3-3-3 RULE VISUALIZER -->
+  <section class="section section-alt" id="rule333Section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-pill mint">🧠 Behavioral Science</span>
+        <h2>The Essential 3-3-3 Rule</h2>
+        <p class="section-subtitle">
+          Rescue pets don't adjust overnight. The 3-3-3 rule represents the universal milestone guidelines for a rescue pet decompresing in a new environment.
+        </p>
+      </div>
+
+      <div class="rule-333-grid">
+        <!-- 3 Days -->
+        <article class="rule-333-card">
+          <div class="rule-badge rule-badge-1">3D</div>
+          <h3 class="rule-card-title">First 3 Days</h3>
+          <span class="rule-phase-tag">Decompressing & Overwhelmed</span>
+          <p class="rule-card-desc">
+            Your home has brand-new smells, sights, and sounds. The pet may feel cautious, hide under furniture, or sleep for hours as adrenaline wears off.
+          </p>
+          <ul class="rule-expectations-list">
+            <li><span>📍</span> Keep interactions calm; do not force cuddles.</li>
+            <li><span>🚪</span> Confine them to their quiet sanctuary room.</li>
+            <li><span>🚫</span> Avoid hosting visitors, parties, or trips to pet stores.</li>
+            <li><span>🥣</span> Offer fresh water and familiar food consistently.</li>
+          </ul>
+        </article>
+
+        <!-- 3 Weeks -->
+        <article class="rule-333-card">
+          <div class="rule-badge rule-badge-2">3W</div>
+          <h3 class="rule-card-title">First 3 Weeks</h3>
+          <span class="rule-phase-tag">Settling In & Learning Routine</span>
+          <p class="rule-card-desc">
+            They begin feeling secure enough to let down their guard. Their real personality, playful quirks, and behavior habits emerge.
+          </p>
+          <ul class="rule-expectations-list">
+            <li><span>⏰</span> Maintain predictable meal and walk schedules.</li>
+            <li><span>🦴</span> Provide positive reinforcement for good behavior.</li>
+            <li><span>🐾</span> They may test boundaries; be patient and gentle.</li>
+            <li><span>🩺</span> Complete their first routine veterinary wellness check.</li>
+          </ul>
+        </article>
+
+        <!-- 3 Months -->
+        <article class="rule-333-card">
+          <div class="rule-badge rule-badge-3">3M</div>
+          <h3 class="rule-card-title">First 3 Months</h3>
+          <span class="rule-phase-tag">Complete Trust & True Home</span>
+          <p class="rule-card-desc">
+            They realize they are permanently safe. Deep loyalty and emotional bonding are established, creating the lifelong friendship you dreamed of.
+          </p>
+          <ul class="rule-expectations-list">
+            <li><span>❤️</span> Secure attachment to household family members.</li>
+            <li><span>🏡</span> Full understanding of household flow and boundaries.</li>
+            <li><span>🎓</span> Great time for fun trick training and enrichment.</li>
+            <li><span>🌟</span> A confident, happy companion for life!</li>
+          </ul>
+        </article>
+      </div>
+
+      <div class="rule-highlight-banner">
+        <div class="rule-banner-icon">💡</div>
+        <div class="rule-banner-text">
+          <h4>Patience Is the Ultimate Form of Love</h4>
+          <p>
+            Never rush an animal's confidence. Every day of predictable kindness builds a brick in the foundation of their lifelong trust.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 3: INTERACTIVE PREPARATION CHECKLIST -->
+  <section class="section" id="checklistSection">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-pill sky">✅ Adoption Day Checklist</span>
+        <h2>Are Your Supplies Ready?</h2>
+        <p class="section-subtitle">
+          Check off items as you gather them before adoption day. Your progress saves automatically in your browser!
+        </p>
+      </div>
+
+      <div class="checklist-card-wrap">
+        <div class="checklist-progress-container">
+          <div class="progress-label-row">
+            <span>Adoption Readiness Score:</span>
+            <span><strong id="checkedCount">0</strong> / <span id="totalCheckCount">8</span> Completed</span>
+          </div>
+          <div class="progress-track" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+            <div class="progress-fill" id="checklistProgressBar"></div>
+          </div>
+          <p class="checklist-status-msg" id="checklistStatusMsg">Start checking off supplies as you prepare!</p>
+        </div>
+
+        <div class="checklist-grid">
+          <!-- Item 1 -->
+          <label class="checklist-item" for="chk_food">
+            <input type="checkbox" id="chk_food" class="checklist-checkbox">
+            <div class="checklist-text-block">
+              <div class="checklist-title">1. Transition Food & Bowls</div>
+              <div class="checklist-detail">Ask the rescue what brand they feed and buy stainless steel or ceramic bowls.</div>
+            </div>
+          </label>
+
+          <!-- Item 2 -->
+          <label class="checklist-item" for="chk_crate">
+            <input type="checkbox" id="chk_crate" class="checklist-checkbox">
+            <div class="checklist-text-block">
+              <div class="checklist-title">2. Safe Carrier or Transport Crate</div>
+              <div class="checklist-detail">Essential for safe transport home and a cozy den for sleeping.</div>
+            </div>
+          </label>
+
+          <!-- Item 3 -->
+          <label class="checklist-item" for="chk_collar">
+            <input type="checkbox" id="chk_collar" class="checklist-checkbox">
+            <div class="checklist-text-block">
+              <div class="checklist-title">3. Collar, ID Tag & Leash</div>
+              <div class="checklist-detail">Include your active phone number on an engraved tag before bringing them home.</div>
+            </div>
+          </label>
+
+          <!-- Item 4 -->
+          <label class="checklist-item" for="chk_bedding">
+            <input type="checkbox" id="chk_bedding" class="checklist-checkbox">
+            <div class="checklist-text-block">
+              <div class="checklist-title">4. Washable Bedding & Blankets</div>
+              <div class="checklist-detail">Plush, easy-to-wash bedding placed in their designated quiet haven.</div>
+            </div>
+          </label>
+
+          <!-- Item 5 -->
+          <label class="checklist-item" for="chk_litter">
+            <input type="checkbox" id="chk_litter" class="checklist-checkbox">
+            <div class="checklist-text-block">
+              <div class="checklist-title">5. Sanitation & Waste Supplies</div>
+              <div class="checklist-detail">Litter box & unscented litter (for cats), biodegradable waste bags (for dogs), puppy pads.</div>
+            </div>
+          </label>
+
+          <!-- Item 6 -->
+          <label class="checklist-item" for="chk_vet">
+            <input type="checkbox" id="chk_vet" class="checklist-checkbox">
+            <div class="checklist-text-block">
+              <div class="checklist-title">6. Local Vet Pre-Selected</div>
+              <div class="checklist-detail">Research a trusted local clinic and schedule a wellness checkup for week 1-2.</div>
+            </div>
+          </label>
+
+          <!-- Item 7 -->
+          <label class="checklist-item" for="chk_proof">
+            <input type="checkbox" id="chk_proof" class="checklist-checkbox">
+            <div class="checklist-text-block">
+              <div class="checklist-title">7. Pet-Proofing Home Check</div>
+              <div class="checklist-detail">Tuck away dangling electrical cords, chemical cleaners, trash cans, and toxic houseplants.</div>
+            </div>
+          </label>
+
+          <!-- Item 8 -->
+          <label class="checklist-item" for="chk_cleaner">
+            <input type="checkbox" id="chk_cleaner" class="checklist-checkbox">
+            <div class="checklist-text-block">
+              <div class="checklist-title">8. Enzymatic Stain Cleaner</div>
+              <div class="checklist-detail">Accidents will happen during decompression! Enzymatic cleaners erase scent markers completely.</div>
+            </div>
+          </label>
+        </div>
+
+        <div class="checklist-toolbar">
+          <button type="button" class="btn btn-outline btn-sm" id="resetChecklistBtn">🔄 Reset Checklist</button>
+          <button type="button" class="btn btn-primary btn-sm" id="printChecklistBtn">🖨️ Print Checklist</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 4: ADOPTION READINESS QUIZ -->
+  <section class="section section-alt" id="readinessQuiz">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-pill purple">🎯 Self-Evaluation</span>
+        <h2>Are You Ready to Adopt?</h2>
+        <p class="section-subtitle">
+          Take this quick 4-question interactive check to ensure your home, lifestyle, and mindset align with successful animal adoption.
+        </p>
+      </div>
+
+      <div class="quiz-card-wrapper">
+        <form id="adoptionQuizForm">
+          <div id="quizQuestionsList">
+            <!-- Questions rendered via app.js -->
+          </div>
+
+          <div class="quiz-action-bar">
+            <button type="submit" class="btn btn-accent btn-lg">Calculate Readiness Profile ✨</button>
+          </div>
+        </form>
+
+        <div id="quizResultContainer">
+          <!-- Result rendered here -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 5: SAMPLE PET PROFILES & INQUIRY QUESTIONS -->
+  <section class="section" id="browsePets">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-pill yellow">🐾 Meet The Companions</span>
+        <h2>Sample Adoption Profiles</h2>
+        <p class="section-subtitle">
+          Explore sample adoptable animals and click "View Adoption Questions" to learn what specific questions to ask the shelter counselors.
+        </p>
+      </div>
+
+      <!-- Filter Bar -->
+      <div class="filter-pills-bar" role="tablist">
+        <button type="button" class="filter-pill active" data-filter="all">All Friends 🐾</button>
+        <button type="button" class="filter-pill" data-filter="dog">Dogs 🐕</button>
+        <button type="button" class="filter-pill" data-filter="cat">Cats 🐈</button>
+        <button type="button" class="filter-pill" data-filter="small">Small Pets 🐇</button>
+      </div>
+
+      <!-- Pets Grid -->
+      <div class="pets-grid" id="petsGrid">
+        <!-- Rendered by app.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 6: FREQUENTLY ASKED QUESTIONS -->
+  <section class="section section-alt" id="faqSection">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-pill coral">💬 Got Questions?</span>
+        <h2>Frequently Asked Questions</h2>
+        <p class="section-subtitle">
+          Quick, clear answers to common questions about shelter fees, apartment living, and adoption paperwork.
+        </p>
+      </div>
+
+      <div class="faq-list">
+        <div class="faq-item">
+          <button type="button" class="faq-question" aria-expanded="false">
+            <span>What do shelter adoption fees typically cover?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>
+              Adoption fees typically range from $50 to $350, which is an extraordinary bargain compared to buying an animal. The fee almost always covers: spay or neuter surgery, full core vaccinations (rabies, distemper, parvo), microchipping, flea/tick treatment, deworming, and a complete veterinary wellness exam.
+            </p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button type="button" class="faq-question" aria-expanded="false">
+            <span>Can I adopt a pet if I live in an apartment or rent?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>
+              Yes, absolutely! Millions of shelter pets thrive in apartments. You will need to show a copy of your lease or landlord's written consent allowing pets, verify pet deposits or weight/breed rules in advance, and demonstrate that you have an exercise plan (like daily neighborhood walks for dogs or vertical climbing perches for cats).
+            </p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button type="button" class="faq-question" aria-expanded="false">
+            <span>How do I introduce a newly adopted pet to my resident animals?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>
+              Always introduce animals slowly and in controlled steps! For dogs, conduct the initial introduction on neutral territory outside the house (like a park) on loose leashes. For cats, keep the newcomer in a separate bedroom for several days, swapping scents using blankets and feeding them on opposite sides of a closed door before allowing visual contact.
+            </p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button type="button" class="faq-question" aria-expanded="false">
+            <span>What if the adoption isn't working out?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>
+              Reputable shelters and rescues will always offer post-adoption support, including behavioral advice, training resources, or even temporary foster switches. Furthermore, ethical rescues always have a return policy ensuring the animal is safely welcomed back into their care rather than surrendered elsewhere.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BANNER -->
+  <section class="cta-section">
+    <div class="container cta-box">
+      <h2>Ready to Change a Life Forever? ❤️</h2>
+      <p>
+        Visit your local animal shelter, humane society, or foster rescue this week. A loyal companion is waiting for someone just like you.
+      </p>
+      <div class="cta-btn-group">
+        <a href="#processSection" class="btn btn-white">Review Adoption Steps</a>
+        <a href="#checklistSection" class="btn btn-accent">Adoption Checklist 📋</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="brand-logo" style="color: #FFFFFF; margin-bottom: 12px;">
+            <span class="logo-badge">🐾</span>
+            <span>Paw<span class="logo-accent">Path</span></span>
+          </div>
+          <p>
+            PawPath is an open-source, cheerful educational guide dedicated to promoting compassionate animal adoption, ethical rescue advocacy, and responsible pet parenthood.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <ul class="footer-links">
+            <li><a href="#processSection">The 5 Adoption Steps</a></li>
+            <li><a href="#rule333Section">The 3-3-3 Rule</a></li>
+            <li><a href="#checklistSection">Supplies Checklist</a></li>
+            <li><a href="#readinessQuiz">Readiness Quiz</a></li>
+            <li><a href="#browsePets">Meet Companions</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Adoption Resources</h4>
+          <ul class="footer-links">
+            <li><a href="https://www.petfinder.com" target="_blank" rel="noopener noreferrer">Petfinder.com ↗</a></li>
+            <li><a href="https://www.aspca.org" target="_blank" rel="noopener noreferrer">ASPCA Animal Adoption ↗</a></li>
+            <li><a href="https://theshelterpetproject.org" target="_blank" rel="noopener noreferrer">The Shelter Pet Project ↗</a></li>
+            <li><a href="https://bestfriends.org" target="_blank" rel="noopener noreferrer">Best Friends Animal Society ↗</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>© 2026 PawPath Adoption Guide • Ready for GitHub Pages hosting 🚀</div>
+        <div>Bright, cheerful, and crafted with love for shelter animals everywhere 🐾</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ADOPTION INQUIRY MODAL -->
+  <div class="modal-overlay" id="petInquiryModal" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="modal-content-box">
+      <button type="button" class="modal-close-btn" id="closeModalBtn" aria-label="Close dialog">&times;</button>
+      <div id="modalBodyContent">
+        <!-- Injected via app.js -->
+      </div>
+    </div>
+  </div>
+
+  <!-- SCRIPTS -->
+  <script src="music.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
